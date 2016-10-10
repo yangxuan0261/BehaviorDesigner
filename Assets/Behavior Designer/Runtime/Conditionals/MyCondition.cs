@@ -20,7 +20,7 @@ namespace BehaviorDesigner.Runtime.Tasks
             
             //Owner.transform;
             Debug.Log("--- MyCondition OnUpdate");
-            return TaskStatus.Failure;
+            return TaskStatus.Success;
         }
 
         public void MyEvent(int num)
@@ -31,6 +31,12 @@ namespace BehaviorDesigner.Runtime.Tasks
         public override void OnReset()
         {
             eventName = "";
+        }
+
+        public override void OnBehaviorComplete()
+        {
+            Debug.LogFormat("--- MyCondition OnBehaviorComplete");
+            base.OnBehaviorComplete();
         }
     }
 }

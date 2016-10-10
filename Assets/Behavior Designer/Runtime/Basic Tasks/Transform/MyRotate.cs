@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
@@ -16,7 +17,9 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
         public AnimationCurve curve;
 
         private Transform targetTransform;
-        private GameObject prevGameObject; 
+        private GameObject prevGameObject;
+
+        private bool isOver = false;
 
         public override void OnStart()
         {
@@ -39,6 +42,15 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
             //modify shared value
             sv.Value = 44.44f;
             sv2.Value = 55.55f;
+
+            float dstTime = curve.keys[curve.keys.Length - 1].time;
+            StartCoroutine(Rot(dstTime));
+        }
+
+        IEnumerator Rot(float time)
+        {
+            yield return new WaitForSeconds(time);
+            isOver = true;
         }
 
         public override TaskStatus OnUpdate()
@@ -51,17 +63,14 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
             float currAn = curve.Evaluate(Time.time);
             targetTransform.localRotation = Quaternion.Euler(new Vector3(0, currAn, 0));
 
-            float dstTime = curve.keys[curve.keys.Length - 1].time;
             //if (dstTime >= 1.0f)
-            if (false)
+            if (isOver)
             {
                 Debug.LogFormat("--- rot success");
                 return TaskStatus.Success;
             }
             else
             {
-                
-
                 //targetTransform.Rotate(eulerAngles.Value, relativeTo);
                 return TaskStatus.Running;
             }
