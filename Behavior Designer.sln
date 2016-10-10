@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavior Designer.CSharp", "Behavior Designer.CSharp.csproj", "{D328FD69-34E5-F720-4632-01A837E44AB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavior Designer.CSharp.Editor", "Behavior Designer.CSharp.Editor.csproj", "{DEC803B9-19F8-51F1-57B7-5AE20BC89885}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D328FD69-34E5-F720-4632-01A837E44AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D328FD69-34E5-F720-4632-01A837E44AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D328FD69-34E5-F720-4632-01A837E44AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D328FD69-34E5-F720-4632-01A837E44AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEC803B9-19F8-51F1-57B7-5AE20BC89885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEC803B9-19F8-51F1-57B7-5AE20BC89885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEC803B9-19F8-51F1-57B7-5AE20BC89885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEC803B9-19F8-51F1-57B7-5AE20BC89885}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
