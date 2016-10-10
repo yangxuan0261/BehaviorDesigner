@@ -12,11 +12,11 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
         public SharedVector3 eulerAngles;
         [Tooltip("Specifies which axis the rotation is relative to")]
         public Space relativeTo = Space.Self;
-        [Tooltip("rotate time")]
-        public float time = 0.0f;
+        [Tooltip("rotate curve")]
+        public AnimationCurve curve;
 
         private Transform targetTransform;
-        private GameObject prevGameObject;
+        private GameObject prevGameObject; 
 
         public override void OnStart()
         {
@@ -25,6 +25,20 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
                 targetTransform = currentGameObject.GetComponent<Transform>();
                 prevGameObject = currentGameObject;
             }
+
+            //--------------- test£¬like blackboard in ue4
+            //get GlobalVariables, use in different bt
+            SharedFloat sv = (SharedFloat)BehaviorDesigner.Runtime.GlobalVariables.Instance.GetVariable("waitTime");
+            float wt = sv.Value;
+
+            //get Variables, use in same bt
+            SharedFloat sv2 = (SharedFloat)Owner.GetVariable("scaleTime");
+            float wt2 = sv2.Value;
+            Debug.LogFormat("--- wt:{0}, wt2:{1}", wt, wt2);
+
+            //modify shared value
+            sv.Value = 44.44f;
+            sv2.Value = 55.55f;
         }
 
         public override TaskStatus OnUpdate()
@@ -34,10 +48,24 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
                 return TaskStatus.Failure;
             }
 
+            float currAn = curve.Evaluate(Time.time);
+            targetTransform.localRotation = Quaternion.Euler(new Vector3(0, currAn, 0));
 
-            targetTransform.Rotate(eulerAngles.Value, relativeTo);
+            float dstTime = curve.keys[curve.keys.Length - 1].time;
+            //if (dstTime >= 1.0f)
+            if (false)
+            {
+                Debug.LogFormat("--- rot success");
+                return TaskStatus.Success;
+            }
+            else
+            {
+                
 
-            return TaskStatus.Success;
+                //targetTransform.Rotate(eulerAngles.Value, relativeTo);
+                return TaskStatus.Running;
+            }
+
         }
 
         public override void OnReset()
