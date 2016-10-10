@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.4.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -483,6 +481,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Transform\IsChildOf.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Transform\LookAt.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Transform\MyRotate.cs" />
+    <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Transform\MyTranslate.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Transform\Rotate.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Transform\RotateAround.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Transform\SetEulerAngles.cs" />
@@ -496,7 +495,6 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Transform\SetRightVector.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Transform\SetRotation.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Transform\SetUpVector.cs" />
-    <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Transform\MyTranslate.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Transform\Translate.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Vector2\ClampMagnitude.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Basic Tasks\Vector2\Distance.cs" />
@@ -543,8 +541,8 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Composites\SelectorEvaluator.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Composites\Sequence.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Composites\UtilitySelector.cs" />
-    <Compile Include="Assets\Behavior Designer\Runtime\Conditionals\MyCondition.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Conditionals\HasReceivedEvent.cs" />
+    <Compile Include="Assets\Behavior Designer\Runtime\Conditionals\MyCondition.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Conditionals\Physics\HasEnteredCollision.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Conditionals\Physics\HasEnteredCollision2D.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Conditionals\Physics\HasEnteredTrigger.cs" />
@@ -586,6 +584,7 @@
     <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedVector2.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedVector3.cs" />
     <Compile Include="Assets\Behavior Designer\Runtime\Variables\SharedVector4.cs" />
+    <Compile Include="Assets\Scripts\cube.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Behavior Designer\Editor\GridShader.shader" />

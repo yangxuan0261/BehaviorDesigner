@@ -17,9 +17,15 @@ namespace BehaviorDesigner.Runtime.Tasks
 
         public override TaskStatus OnUpdate()
         {
+            
             //Owner.transform;
             Debug.Log("--- MyCondition OnUpdate");
             return TaskStatus.Failure;
+        }
+
+        public void MyEvent(int num)
+        {
+            Debug.LogFormat("--- MyCondition MyEvent, num:{0}", num);
         }
 
         public override void OnReset()
