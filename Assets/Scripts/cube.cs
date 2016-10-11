@@ -4,18 +4,17 @@ using BehaviorDesigner.Runtime;
 
 public class cube : MonoBehaviour {
 
+    private BehaviorTree bt;
 	// Use this for initialization
 	void Start () {
-        BehaviorTree beha = GetComponent<BehaviorTree>();
-        //beha.SendEvent<int>("MyEvent", 123);
+        bt = GetComponent<BehaviorTree>();
+        //StartCoroutine(Interrupt());
+    }
 
-        Animator ator = GetComponent<Animator>();
-        //ator.GetCurrentAnimatorClipInfo.
-
+    IEnumerator Interrupt()
+    {
+        yield return new WaitForSeconds(4f);
     }
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
