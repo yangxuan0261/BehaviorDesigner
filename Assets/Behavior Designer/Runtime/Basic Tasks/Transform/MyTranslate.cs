@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+
 
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
 {
@@ -15,6 +17,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
 
         private Transform targetTransform;
         private GameObject prevGameObject;
+        public bool isOver = false;
 
         public override void OnStart()
         {
@@ -23,6 +26,14 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
                 targetTransform = currentGameObject.GetComponent<Transform>();
                 prevGameObject = currentGameObject;
             }
+
+            StartCoroutine(Rot(2.0f));
+        }
+
+        IEnumerator Rot(float time)
+        {
+            yield return new WaitForSeconds(time);
+            isOver = true;
         }
 
         public override TaskStatus OnUpdate()
@@ -32,17 +43,43 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
                 return TaskStatus.Failure;
             }
 
-            Debug.Log("--- Translate ing");
-            targetTransform.Translate(translation.Value, relativeTo);
+            if (isOver)
+            {
 
-            return TaskStatus.Success;
+                Debug.Log("--- Translate ing");
+                targetTransform.Translate(translation.Value, relativeTo);
+               return TaskStatus.Success;
+            }
+            else
+            {
+                return TaskStatus.Running;
+            }
         }
 
         public override void OnReset()
         {
+            Debug.LogFormat("--- translate OnReset");
             targetGameObject = null;
             translation = Vector3.zero;
             relativeTo = Space.Self;
+            isOver = false;
+        }
+
+        public override void OnEnd()
+        {
+            Debug.LogFormat("--- translate OnEnd");
+        }
+
+        public override void OnBehaviorComplete()
+        {
+            Debug.LogFormat("--- translate OnBehaviorComplete");
+            base.OnBehaviorComplete();
+        }
+
+        public override void OnBehaviorRestart()
+        {
+            base.OnBehaviorRestart();
+            Debug.LogFormat("--- translate OnBehaviorRestart");
         }
     }
 }

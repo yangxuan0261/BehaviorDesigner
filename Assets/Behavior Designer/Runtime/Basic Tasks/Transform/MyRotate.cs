@@ -19,7 +19,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
         private Transform targetTransform;
         private GameObject prevGameObject;
 
-        private bool isOver = false;
+        public bool isOver = false;
 
         public override void OnStart()
         {
@@ -82,6 +82,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
             targetGameObject = null;
             eulerAngles = Vector3.zero;
             relativeTo = Space.Self;
+            isOver = false;
         }
     }
 }
