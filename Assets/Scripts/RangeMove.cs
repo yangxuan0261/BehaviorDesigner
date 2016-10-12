@@ -7,6 +7,7 @@ namespace BehaviorDesigner.Runtime.Tasks
     [TaskDescription("Returns success as soon as the event specified by eventName has been received.")]
 
     [TaskCategory("My")]
+    [TaskIcon("Assets/bdIcon/aaa.jpg")]
     public class RangeMove : Action
     {
         public bool mIsOver = false;
