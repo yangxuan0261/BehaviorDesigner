@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
-
 namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityTransform
 {
     [TaskCategory("My")]

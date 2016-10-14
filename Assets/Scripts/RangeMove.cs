@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using DG.Tweening;
-
 namespace BehaviorDesigner.Runtime.Tasks
 {
     [TaskDescription("Returns success as soon as the event specified by eventName has been received.")]

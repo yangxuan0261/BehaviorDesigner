@@ -1,5 +1,4 @@
 using UnityEngine;
-
 namespace BehaviorDesigner.Runtime.Tasks
 {
     [TaskDescription("Returns success as soon as the event specified by eventName has been received.")]
